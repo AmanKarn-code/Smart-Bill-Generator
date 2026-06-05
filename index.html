@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Shopping Bill</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🛒 Smart Shopping Bill</h1>
+        <p>Interactive Billing System with Decimal, Binary & Hexadecimal Conversion</p>
+    </div>
+
+    <div class="form-card">
+
+        <input type="text" id="itemName" placeholder="Item Name">
+
+        <input type="number" id="itemPrice" min="0" placeholder="Price">
+
+        <input type="number" id="itemQty" min="0" placeholder="Quantity">
+
+        <button onclick="addItem()">Add Item</button>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                    <th>Binary</th>
+                    <th>Hex</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="billBody"></tbody>
+
+        </table>
+
+    </div>
+
+    <div class="summary">
+
+        <div class="box">
+            <h3>Grand Total</h3>
+            <p id="grandTotal">0</p>
+        </div>
+
+        <div class="box">
+            <h3>Binary</h3>
+            <p id="binaryTotal">0</p>
+        </div>
+
+        <div class="box">
+            <h3>Hexadecimal</h3>
+            <p id="hexTotal">0</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
