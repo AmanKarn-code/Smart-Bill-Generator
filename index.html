@@ -1,76 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Shopping Bill</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<div class="container">
-
-    <div class="header">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
         <h1>🛒 Smart Shopping Bill</h1>
-        <p>Interactive Billing System with Decimal, Binary & Hexadecimal Conversion</p>
-    </div>
+        <p>
+          Interactive Billing System with Decimal, Binary & Hexadecimal
+          Conversion
+        </p>
+      </div>
 
-    <div class="form-card">
+      <div class="form-card">
+        <select id="itemName">
+          <option value="">Select Item</option>
 
-        <input type="text" id="itemName" placeholder="Item Name">
+          <option value="Rice">Rice</option>
+          <option value="Sugar">Sugar</option>
+          <option value="Tea">Tea</option>
+          <option value="Coffee">Coffee</option>
 
-        <input type="number" id="itemPrice" min="0" placeholder="Price">
+          <option value="Coca Cola">Coca Cola</option>
+          <option value="Pepsi">Pepsi</option>
+          <option value="Sprite">Sprite</option>
 
-        <input type="number" id="itemQty" min="0" placeholder="Quantity">
+          <option value="Chips">Chips</option>
+          <option value="Cookies">Cookies</option>
+          <option value="Popcorn">Popcorn</option>
+
+          <option value="Cake">Cake</option>
+          <option value="Brownie">Brownie</option>
+          <option value="Ice Cream">Ice Cream</option>
+        </select>
+
+        <input type="number" id="itemPrice" min="0" placeholder="Price" />
+
+        <input type="number" id="itemQty" min="0" placeholder="Quantity" />
 
         <button onclick="addItem()">Add Item</button>
+      </div>
 
-    </div>
-
-    <div class="table-container">
-
+      <div class="table-container">
         <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Total</th>
+              <th>Binary</th>
+              <th>Hex</th>
+              <th>Action</th>
+            </tr>
+          </thead>
 
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Price</th>
-                    <th>Qty</th>
-                    <th>Total</th>
-                    <th>Binary</th>
-                    <th>Hex</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-
-            <tbody id="billBody"></tbody>
-
+          <tbody id="billBody"></tbody>
         </table>
+      </div>
 
+      <div class="summary">
+        <div class="box">
+          <h3>Grand Total</h3>
+          <p id="grandTotal">0</p>
+        </div>
+
+        <div class="box">
+          <h3>Binary</h3>
+          <p id="binaryTotal">0</p>
+        </div>
+
+        <div class="box">
+          <h3>Hexadecimal</h3>
+          <p id="hexTotal">0</p>
+        </div>
+      </div>
     </div>
 
-    <div class="summary">
-
-        <div class="box">
-            <h3>Grand Total</h3>
-            <p id="grandTotal">0</p>
-        </div>
-
-        <div class="box">
-            <h3>Binary</h3>
-            <p id="binaryTotal">0</p>
-        </div>
-
-        <div class="box">
-            <h3>Hexadecimal</h3>
-            <p id="hexTotal">0</p>
-        </div>
-
-    </div>
-
-</div>
-
-<script src="script.js"></script>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

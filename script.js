@@ -1,63 +1,55 @@
 let items = [];
 
 function addItem() {
+  const name = document.getElementById("itemName").value.trim();
 
-    const name =
-        document.getElementById("itemName").value.trim();
+  const price = Number(document.getElementById("itemPrice").value);
 
-    const price =
-        Number(document.getElementById("itemPrice").value);
+  const qty = Number(document.getElementById("itemQty").value);
 
-    const qty =
-        Number(document.getElementById("itemQty").value);
+  if (!name || price <= 0 || qty <= 0) {
+    alert("Please enter valid data");
+    return;
+  }
 
-    if (!name || price <= 0 || qty <= 0) {
-        alert("Please enter valid data");
-        return;
-    }
+  const total = price * qty;
 
-    const total = price * qty;
+  items.push({
+    name,
+    price,
+    qty,
+    total,
+  });
 
-    items.push({
-        name,
-        price,
-        qty,
-        total
-    });
+  renderTable();
 
-    renderTable();
-
-    document.getElementById("itemName").value = "";
-    document.getElementById("itemPrice").value = "";
-    document.getElementById("itemQty").value = "";
+  document.getElementById("itemName").value = "";
+  document.getElementById("itemPrice").value = "";
+  document.getElementById("itemQty").value = "";
 }
 
-function deleteItem(index){
+function deleteItem(index) {
+  items.splice(index, 1);
 
-    items.splice(index,1);
-
-    renderTable();
+  renderTable();
 }
 
-function renderTable(){
+function renderTable() {
+  const body = document.getElementById("billBody");
 
-    const body =
-        document.getElementById("billBody");
+  body.innerHTML = "";
 
-    body.innerHTML = "";
+  let grandTotal = 0;
 
-    let grandTotal = 0;
+  items.forEach((item, index) => {
+    grandTotal += item.total;
 
-    items.forEach((item,index)=>{
-
-        grandTotal += item.total;
-
-        body.innerHTML += `
+    body.innerHTML += `
         <tr>
             <td>${item.name}</td>
-            <td>₹${item.price}</td>
+            <td>₹${item.price.toFixed(2)}</td>
             <td>${item.qty}</td>
-            <td>₹${item.total}</td>
+            <td>₹${item.total.toFixed(2)}</td>
             <td>${item.total.toString(2)}</td>
             <td>${item.total.toString(16).toUpperCase()}</td>
 
@@ -70,14 +62,13 @@ function renderTable(){
             </td>
         </tr>
         `;
-    });
+  });
 
-    document.getElementById("grandTotal")
-        .innerText = `₹${grandTotal}`;
+  document.getElementById("grandTotal").innerText = `₹${grandTotal.toFixed(2)}`;;
 
-    document.getElementById("binaryTotal")
-        .innerText = grandTotal.toString(2);
+  document.getElementById("binaryTotal").innerText = grandTotal.toString(2);
 
-    document.getElementById("hexTotal")
-        .innerText = grandTotal.toString(16).toUpperCase();
+  document.getElementById("hexTotal").innerText = grandTotal
+    .toString(16)
+    .toUpperCase();
 }
