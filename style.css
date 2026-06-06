@@ -42,29 +42,29 @@ body {
 
   padding: 20px;
   border-radius: 20px;
-
   margin-bottom: 25px;
 }
 
 .form-card input {
   flex: 1;
   min-width: 200px;
-
   padding: 14px;
   border: none;
   outline: none;
   border: 2px solid #3b82f6;
-
+  font-size: 1.2rem;
   border-radius: 12px;
 }
-
+#itemPrice{
+    cursor:not-allowed;
+}
 .form-card button {
   padding: 14px 24px;
   border: none;
   border-radius: 12px;
 
   cursor: pointer;
-
+  
   background: #3b82f6;
   color: white;
 
@@ -81,9 +81,10 @@ select {
   padding: 14px;
   border: 2px solid #3b82f6;
   border-radius: 12px;
+  font-size: 1.2rem;
   /* background: #1e293b; */
-  color: #838383;
-  font-size: 16px;
+  /* color: #838383; */
+  /* font-size: 16px; */
   cursor: pointer;
   outline: none;
   transition: 0.3s;
